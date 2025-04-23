@@ -1,0 +1,9 @@
+services:
+  heisenberg:
+    build: .
+    container_name: $CONTAINER_NAME
+    image: $IMAGE_NAME
+    env_file:
+      - .env
+    volumes: 
+      - ./src:/app
