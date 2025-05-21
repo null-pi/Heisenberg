@@ -175,3 +175,5 @@ cython_debug/
 
 
 country_sector/
+all_tickers/
+ticker_quotes/
