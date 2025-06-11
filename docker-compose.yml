@@ -15,6 +15,7 @@ services:
     volumes:
       - heisenberg_data:/app/data
       - heisenberg_config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
   heisenberg_network:

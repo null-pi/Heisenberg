@@ -8,11 +8,11 @@ cd /app/.heisenberg-system-core && . /app/.heisenberg-system-core/venv/bin/activ
 PRODUCTION=${PRODUCTION:-false}
 if [ "$PRODUCTION" = "true" ]; then
     echo "Running in production mode..."
-    fastapi run --app main.py --host ${SERVER_HOST:-0.0.0.0} --port ${SERVER_PORT:-8000} --workers ${WORKERS:-4}
+    fastapi run src/main.py --host ${SERVER_HOST:-0.0.0.0} --port ${SERVER_PORT:-8000} --workers ${WORKERS:-4}
 
 else
     echo "Running in development mode..."
-    fastapi dev --app main.py --host ${SERVER_HOST:-0.0.0.0} --port ${SERVER_PORT:-8000} --workers ${WORKERS:-4} --reload
+    fastapi dev src/main.py --host ${SERVER_HOST:-0.0.0.0} --port ${SERVER_PORT:-8000} --reload
 fi
 
 echo "--- VNC & CODE-SERVER STARTUP SCRIPT ---"
