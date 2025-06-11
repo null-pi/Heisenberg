@@ -5,5 +5,23 @@ services:
     image: $IMAGE_NAME
     env_file:
       - .env
-    volumes: 
-      - ./src:/app
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+      - "${VNC_PORT}:${VNC_PORT}"
+      - "${NOVNC_PORT}:${NOVNC_PORT}"
+      - "${CODE_SERVER_PORT}:${CODE_SERVER_PORT}"
+    networks:
+      - heisenberg_network
+    volumes:
+      - heisenberg_data:/app/data
+      - heisenberg_config:/app/config
+
+networks:
+  heisenberg_network:
+    driver: bridge
+
+volumes:
+  heisenberg_data:
+    driver: local
+  heisenberg_config:
+    driver: local
